@@ -1,0 +1,14 @@
+{
+    "name": "markdown-parser-toy",
+    "private": true,
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "npx vite",
+        "build": "npx vite build"
+    },
+    "devDependencies": {
+        "@types/node": "^20.14.10",
+        "vite": "^5.3.4"
+    }
+}
