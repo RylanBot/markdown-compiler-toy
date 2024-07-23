@@ -10,5 +10,8 @@
     "devDependencies": {
         "@types/node": "^20.14.10",
         "vite": "^5.3.4"
+    },
+    "dependencies": {
+        "js-beautify": "^1.15.1"
     }
 }

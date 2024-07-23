@@ -1,4 +1,5 @@
 import Markdown from '@/core';
+import beautify from 'js-beautify';
 
 async function loadDefaultMd() {
     try {
@@ -22,7 +23,7 @@ async function initialize() {
         const { tokens, html } = buildParser(markdownInput);
 
         document.getElementById('html-content-box').innerHTML = html;
-        document.getElementById('source-content-box').textContent = html;
+        document.getElementById('source-content-box').textContent = beautify.html(html);;
         document.getElementById('token-content-box').textContent = tokens;
     }
 
