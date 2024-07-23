@@ -1,5 +1,5 @@
 import { Block } from "@/core/tokenizer";
-import { HASH, SPACE } from "@/rules/common/delimiters";
+import { HASH, SPACE } from "../common/delimiters";
 
 function parseHeading(state: Block) {
   if (state.src.charCodeAt(state.pos) !== HASH) return;

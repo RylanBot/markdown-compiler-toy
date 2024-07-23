@@ -1,11 +1,11 @@
 import { InlineBlock } from "@/core/tokenizer";
 
 import { parseInlineText } from ".";
-import DELIMITERS from "../common/delimiters";
+import { STAR, UNDERSCORE } from "../common/delimiters";
 
 function parseEmphasis(state: InlineBlock) {
     const text = state.src;
-    const emMarks = state.delimiters.filter(d => d.char === DELIMITERS.STAR || d.char === DELIMITERS.UNDERSCORE);
+    const emMarks = state.delimiters.filter(d => d.char === STAR || d.char === UNDERSCORE);
     if (text.length === 0 || emMarks.length < 2) return false;
 
     let lastPos = 0;

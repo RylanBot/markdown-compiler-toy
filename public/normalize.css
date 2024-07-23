@@ -10,10 +10,20 @@ h4,
 h5,
 h6,
 p {
-  line-height: 2rem;
+  line-height: 2.5rem;
 }
 
 a {
   text-decoration: none;
   color: #38b39a;
+}
+
+ul,
+ol {
+  margin-left: 1rem;
+  line-height: 0.25rem;
+}
+
+li {
+  line-height: 1.25rem;
 }

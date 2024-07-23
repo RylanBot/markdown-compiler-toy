@@ -1,4 +1,4 @@
-import DELIMITERS, { NEWLINE, SPACE, hasDelimiter } from "@/rules/common/delimiters";
+import { NEWLINE, SPACE, hasDelimiter } from "@/rules/common/delimiters";
 import { parseInlineText } from "@/rules/inline";
 import { Token } from "@/types/token";
 
@@ -18,7 +18,9 @@ export class Block {
     }
 
     pushToken(token: Token) {
-        if (token.content === String.fromCharCode(SPACE)) return;
+        if (token.content === String.fromCharCode(SPACE)
+            || (!token.tag && token.content.length === 0)
+        ) return;
 
         const parentToken = this.buffer[this.buffer.length - 1];
         if (parentToken?.type === "inline_block") {
@@ -35,6 +37,10 @@ export class Block {
         } else if (token.nesting < 0) {
             this.buffer.pop();
         }
+    }
+
+    pushParentToken(token: Token) {
+
     }
 
     pushSegment() {
@@ -92,7 +98,7 @@ export class InlineBlock extends Block {
         let i = this.pos;
         while (i < this.posMax) {
             const charCode = this.src.charCodeAt(i);
-            if (Object.values(DELIMITERS).includes(charCode)) {
+            if (hasDelimiter(this.src.charAt(i))) {
                 this.delimiters.push({ char: charCode, pos: i });
             }
             i++;

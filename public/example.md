@@ -1,13 +1,18 @@
-### Syntax Examples
+### Syntax examples
 
 *Italic* or _Italic_
 
 **Bold** or __Bold__
 
-_**Italic Bold**_ or **_Italic Bold_** 
+_**Italic bold**_ or **_Italic bold_** 
 
 [Link](link.com)
 
-*[Emphatic link](link2.com)*
+*[Bold link](link2.com)*
 
-[__Also emphasis__](link3.com)
+[__Also bold__](link3.com)
+
+- **Unordered List**
+  + First child
+    - Grandchild
+  + *Second italic child*

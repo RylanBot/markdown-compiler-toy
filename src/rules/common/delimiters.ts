@@ -1,19 +1,24 @@
-export const HASH = 0x23; // # 
 export const SPACE = 0x20; // 空格
-export const NEWLINE = 0x0a; // 换行
+export const NEWLINE = 0x0a; // \n
 
-enum DELIMITERS {
-    STAR = 0x2a, // *
-    UNDERSCORE = 0x5f, // _
-    LEFT_BRACKET = 0x5b, // [
-    RIGHT_BRACKET = 0x5d, // ]
-    LEFT_PAREN = 0x28, // (
-    RIGHT_PAREN = 0x29, // )
-}
+export const HASH = 0x23; // # 
+export const DASH = 0x2d; // -
+export const PLUS = 0x2b; // +
+export const DOT = 0x2e; // .
+
+export const STAR = 0x2a; // *
+export const UNDERSCORE = 0x5f; // _
+export const LEFT_BRACKET = 0x5b; // [
+export const RIGHT_BRACKET = 0x5d; // ]
+export const LEFT_PAREN = 0x28; // (
+export const RIGHT_PAREN = 0x29; // )
 
 export const hasDelimiter = (src: string) => {
-    const delimiters = Object.values(DELIMITERS).map(v => String.fromCharCode(v as number));
-    return delimiters.filter(d => src.includes(d)).length > 0;
-}
+    const delimiterCodes = [
+        STAR, UNDERSCORE, 
+        LEFT_BRACKET, RIGHT_BRACKET, LEFT_PAREN, RIGHT_PAREN
+    ];
 
-export default DELIMITERS;
+    const delimiters = delimiterCodes.map(code => String.fromCharCode(code));
+    return delimiters.some(d => src.includes(d));
+}
